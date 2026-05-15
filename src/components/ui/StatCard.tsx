@@ -20,8 +20,8 @@ export function StatCard({ title, value, icon: Icon, change, changeLabel, color 
     <Card className={cn('animate-fade-in', className)} hover>
       <div className="flex items-start justify-between">
         <div className="space-y-2">
-          <p className="text-small text-gray-500">{title}</p>
-          <p className="text-2xl font-bold text-gray-900">{value}</p>
+          <p className="text-small text-gray-500 dark:text-gray-400">{title}</p>
+          <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{value}</p>
           {change !== undefined && (
             <div className="flex items-center gap-1.5">
               <span className={cn(

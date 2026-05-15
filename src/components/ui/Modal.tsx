@@ -1,48 +1,43 @@
 'use client'
-import { useEffect, useCallback } from 'react'
-import { cn } from '@/lib/utils'
+import { useEffect, ReactNode } from 'react'
 import { X } from 'lucide-react'
-import { Button } from './Button'
+import { cn } from '@/lib/utils'
 
 interface ModalProps {
-  open: boolean
+  isOpen: boolean
   onClose: () => void
-  title: string
-  children: React.ReactNode
+  title?: string
+  children: ReactNode
   className?: string
 }
 
-export function Modal({ open, onClose, title, children, className }: ModalProps) {
-  const handleEscape = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') onClose()
-  }, [onClose])
-
+export function Modal({ isOpen, onClose, title, children, className }: ModalProps) {
   useEffect(() => {
-    if (open) {
-      document.addEventListener('keydown', handleEscape)
+    if (isOpen) {
       document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
     }
-    return () => {
-      document.removeEventListener('keydown', handleEscape)
-      document.body.style.overflow = 'unset'
-    }
-  }, [open, handleEscape])
+    return () => { document.body.style.overflow = '' }
+  }, [isOpen])
 
-  if (!open) return null
+  if (!isOpen) return null
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
       <div className={cn(
-        'relative bg-white rounded-card shadow-xl w-full max-w-lg mx-4 p-6 animate-fade-in',
+        'relative bg-white dark:bg-gray-800 rounded-card shadow-xl p-6 w-full max-w-md mx-4 animate-fade-in',
         className
       )}>
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-h2 text-gray-900">{title}</h2>
-          <Button variant="ghost" size="sm" onClick={onClose}>
-            <X className="w-5 h-5" />
-          </Button>
-        </div>
+        {title && (
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-h3 text-gray-900 dark:text-gray-100">{title}</h3>
+            <button onClick={onClose} className="p-1 rounded-btn hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+              <X className="w-5 h-5 text-gray-500" />
+            </button>
+          </div>
+        )}
         {children}
       </div>
     </div>

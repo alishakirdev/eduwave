@@ -9,7 +9,7 @@ export function Card({ className, hover = false, children, ...props }: CardProps
   return (
     <div
       className={cn(
-        'bg-white rounded-card shadow-soft p-6 transition-all duration-300',
+        'bg-white dark:bg-gray-800 rounded-card shadow-soft p-6 transition-all duration-300',
         hover && 'hover:scale-[1.01] hover:shadow-soft-hover',
         className
       )}
@@ -30,7 +30,7 @@ export function CardHeader({ className, children, ...props }: HTMLAttributes<HTM
 
 export function CardTitle({ className, children, ...props }: HTMLAttributes<HTMLHeadingElement>) {
   return (
-    <h3 className={cn('text-h3 text-gray-900', className)} {...props}>
+    <h3 className={cn('text-h3 text-gray-900 dark:text-gray-100', className)} {...props}>
       {children}
     </h3>
   )

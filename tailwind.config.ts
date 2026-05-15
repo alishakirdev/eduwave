@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
+  darkMode: 'class',
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -62,13 +63,13 @@ const config: Config = {
         'xs': ['12px', { lineHeight: '1.5' }],
       },
       borderRadius: {
-        'card': '16px',
-        'subcard': '12px',
-        'btn': '8px',
+        'card': 'var(--radius-card, 16px)',
+        'subcard': 'calc(var(--radius-card, 16px) - 4px)',
+        'btn': 'calc(var(--radius-card, 16px) - 8px)',
       },
       boxShadow: {
-        'soft': '0 2px 8px rgba(0,0,0,0.08)',
-        'soft-hover': '0 4px 16px rgba(0,0,0,0.12)',
+        'soft': '0 2px var(--shadow-intensity, 8px) rgba(0,0,0,0.08)',
+        'soft-hover': '0 4px calc(var(--shadow-intensity, 8px) * 2) rgba(0,0,0,0.12)',
         'sidebar': '2px 0 12px rgba(0,0,0,0.1)',
       },
       spacing: {

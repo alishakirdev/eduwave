@@ -10,7 +10,7 @@ export function Header() {
   const user = getCurrentUser()
 
   return (
-    <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-sm border-b border-gray-200">
+    <header className="sticky top-0 z-30 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700">
       <div className="flex items-center justify-between px-6 py-3">
         <button className="lg:hidden" />
 
@@ -19,7 +19,7 @@ export function Header() {
           <input
             type="text"
             placeholder="بحث..."
-            className="w-full pr-10 pl-4 py-2 text-small border-2 border-gray-200 rounded-btn bg-gray-50 focus:bg-white focus:border-primary-500 transition-all duration-200 outline-none"
+            className="w-full pr-10 pl-4 py-2 text-small border-2 border-gray-200 dark:border-gray-600 rounded-btn bg-gray-50 dark:bg-gray-800 focus:bg-white dark:focus:bg-gray-700 focus:border-primary-500 transition-all duration-200 outline-none dark:text-gray-200"
           />
         </div>
 
