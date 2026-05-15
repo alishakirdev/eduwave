@@ -83,6 +83,7 @@ export default function LoginPage() {
             <p>حسابات تجريبية:</p>
             <p className="mt-1">admin@eduwave.com / teacher / student / parent</p>
             <p className="text-gray-300">كلمة المرور: 123456</p>
+            <p className="text-xs text-primary-400 mt-1">Auto-deploy from GitHub ✅</p>
           </div>
         </div>
       </div>
