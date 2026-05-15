@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="font-tajawal bg-gray-50 text-gray-900 antialiased">
         {children}
+        <SpeedInsights />
       </body>
     </html>
   )
