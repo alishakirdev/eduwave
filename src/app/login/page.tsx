@@ -46,7 +46,6 @@ export default function LoginPage() {
               placeholder="admin@eduwave.com"
               value={email}
               onChange={e => setEmail(e.target.value)}
-              icon={null}
               required
             />
 

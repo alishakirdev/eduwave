@@ -6,7 +6,7 @@ import { Eye, EyeOff, LucideIcon } from 'lucide-react'
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string
   error?: string
-  icon?: LucideIcon
+  icon?: LucideIcon | null
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
